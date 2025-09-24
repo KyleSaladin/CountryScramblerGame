@@ -2,14 +2,22 @@
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
-    <script src="unscramblerScript.js"><</script>
+
     <title>Country Scrambler Game</title>
 </head>
 <body>
+    <div id="namePopup" class="popup">
+        <div class="popup-content">
+            <p>Enter your name: </p>
+            <input type="text" id="playerNameInput" placeholder="Your Name..." />
+            <button id="submitName">Submit</button>
+        </div>
+    </div>
+
     <h1>Country Unscrambler Game</h1>
     <p>Enter Your Unscrambled Guess of the Word</p>
     <br />
-    <button id="startButton" onclick="start()">Start</button>
+    <button id="startButton">Start</button>
 
     <br /><br /><br />
     <p2 id="myScore">Score: 0</p2>
@@ -20,8 +28,12 @@
     <br />
     <p3 id="correctAnswer"></p3>
     <br /><br />
-    <button id="submitButton" onclick="onSubmit()">Submit</button>
+    <button id="submitButton">Submit</button>
     <br /><br />
 
+    <p4 id="highScore">High Score: 0</p4>
+
+
+    <script type="module" src="unscramblerScript.js"></script>
 </body>
 </html>
