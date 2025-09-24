@@ -1,16 +1,27 @@
-fetch('Dictionaries/countries.json')
+fetch('../Dictionaries/countries.json')
     .then(res => res.json())
     .then(data => {
-        const dictionary = data;
-        console.log(countries);
+        saveDict(data);
     })
     .catch(err => console.error(err));
 
+let dictionary;
 let playing = true;
 const countries = 195;
 let score = 0;
 let word = "";
 let guessed = true;
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === 'Enter') {
+        if (guessed) {
+            start();
+        }
+        else {
+            onSubmit();
+        }
+    }
+})
 
 function start() {
     if (guessed == true) {
@@ -27,7 +38,7 @@ function start() {
 
 function playGame() {
 
-    word = getRandomWord(words, 0, countries);
+    word = getRandomWord(0, countries);
     word = word.toLowerCase();
     console.log(word);
     let scrambled = scrambleWord(word);
@@ -36,9 +47,9 @@ function playGame() {
 
 }
 
-function getRandomWord(words, start, end) {
+function getRandomWord(start, end) {
     const rand = randomNumber(start, end);
-    return words[rand];
+    return dictionary[rand];
 }
 
 function randomNumber(start, end) {
@@ -67,4 +78,7 @@ function onSubmit() {
 
     document.getElementById("correctAnswer").innerText = word;
     document.getElementById("myScore").innerText = "Score: " + score;
+}
+function saveDict(data) {
+    dictionary = data;
 }
