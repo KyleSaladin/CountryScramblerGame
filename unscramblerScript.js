@@ -20,7 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-fetch('../Dictionaries/countries.json')
+fetch('Dictionaries/countries.json')
     .then(res => res.json())
     .then(data => {
         saveDict(data);
