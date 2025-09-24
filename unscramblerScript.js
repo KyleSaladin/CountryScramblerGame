@@ -1,4 +1,4 @@
-fetch('../Dictionaries/countries.json')
+fetch('Dictionaries/countries.json')
     .then(res => res.json())
     .then(data => {
         saveDict(data);
