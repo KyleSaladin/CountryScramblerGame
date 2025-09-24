@@ -71,7 +71,7 @@ function onSubmit() {
     if (guessed == true) { return; }
 
     let guess = document.getElementById("guess").value;
-    guess.toLowerCase();
+    guess = guess.toLowerCase();
     guess === word ? score++ : score = 0;
 
     guessed = true;
